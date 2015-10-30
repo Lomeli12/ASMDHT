@@ -41,6 +41,7 @@ namespace ASMDHT {
                 this.disableChange = false;
             }
         }
+        
         void SaveSMDHFileFileOk(object sender, System.ComponentModel.CancelEventArgs e) {
             this.smdhFile.SmallIcon = new Bitmap(this.smallIcon.Image);
             this.smdhFile.BigIcon = new Bitmap(this.largeIcon.Image);
@@ -50,6 +51,7 @@ namespace ASMDHT {
         void OpenSMDHClick(object sender, EventArgs e) {
             this.openSMDHDialog.ShowDialog();
         }
+        
         void SaveSMDHClick(object sender, EventArgs e) {
             this.saveSMDHFile.ShowDialog();
         }
@@ -106,9 +108,11 @@ namespace ASMDHT {
             this.imageType = 1;
             this.openIconDialog.ShowDialog();
         }
+        
         void AboutBtnClick(object sender, EventArgs e) {
             new AboutDialog().ShowDialog();
         }
+        
         void AppTitleNumberValueChanged(object sender, EventArgs e) {
             if (this.smdhFile.Valid && !disableChange) {
                 this.appAuthor.Text = this.smdhFile.GetPublisher((int)this.appTitleNumber.Value);
