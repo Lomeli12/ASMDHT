@@ -8,7 +8,7 @@ namespace ASMDHT {
         SMDH smdhFile;
         Image small, large;
         int imageType = 0;
-        
+        bool disableChange = false;
         public MainForm() {
             InitializeComponent();
             smdhFile = new SMDH();
@@ -18,32 +18,32 @@ namespace ASMDHT {
         
         void OpenSMDHDialogFileOk(object sender, System.ComponentModel.CancelEventArgs e) {
             if (!String.IsNullOrWhiteSpace(this.openSMDHDialog.FileName)) {
+                this.disableChange = true;
                 this.smallIcon.Image = small;
                 this.largeIcon.Image = large;
-                
                 this.previewIcon.Image = large;
                 this.titlePreview.Text = "";
                 this.authorPreview.Text = "";
                 this.descripPreview.Text = "";
+                this.appTitleNumber.Value = this.appTitleNumber.Minimum;
+                
                 this.smdhFile.Load(this.openSMDHDialog.FileName);
+                
                 this.smallIcon.Image = this.smdhFile.SmallIcon;
                 this.largeIcon.Image = this.smdhFile.BigIcon;
-                
-                this.appAuthor.Text = this.smdhFile.GetPublisher((int)this.appTitleNumber.Value - 1);
-                this.appTitle.Text = this.smdhFile.GetShortDescription((int)this.appTitleNumber.Value - 1);
-                this.appDescription.Text = this.smdhFile.GetLongDescription((int)this.appTitleNumber.Value - 1);
+                this.appAuthor.Text = this.smdhFile.GetPublisher((int)this.appTitleNumber.Value);
+                this.appTitle.Text = this.smdhFile.GetShortDescription((int)this.appTitleNumber.Value);
+                this.appDescription.Text = this.smdhFile.GetLongDescription((int)this.appTitleNumber.Value);
                 this.previewIcon.Image = this.smdhFile.BigIcon;
                 this.titlePreview.Text = this.appTitle.Text;
                 this.authorPreview.Text = this.appAuthor.Text;
                 this.descripPreview.Text = this.appDescription.Text;
+                this.disableChange = false;
             }
         }
         void SaveSMDHFileFileOk(object sender, System.ComponentModel.CancelEventArgs e) {
             this.smdhFile.SmallIcon = new Bitmap(this.smallIcon.Image);
             this.smdhFile.BigIcon = new Bitmap(this.largeIcon.Image);
-            this.smdhFile.SetPublisher((int)this.appTitleNumber.Value - 1, this.appAuthor.Text);
-            this.smdhFile.SetShortDescription((int)this.appTitleNumber.Value - 1, this.appTitle.Text);
-            this.smdhFile.SetLongDescription((int)this.appTitleNumber.Value - 1, this.appDescription.Text);
             this.smdhFile.Save(this.saveSMDHFile.FileName);
         }
         
@@ -55,15 +55,24 @@ namespace ASMDHT {
         }
         
         void AppTitleTextChanged(object sender, EventArgs e) {
-            this.titlePreview.Text = this.appTitle.Text;
+            if (!disableChange) {
+                this.titlePreview.Text = this.appTitle.Text;
+                this.smdhFile.SetShortDescription((int)this.appTitleNumber.Value, this.appTitle.Text);
+            }
         }
         
         void AppAuthorTextChanged(object sender, EventArgs e) {
-            this.authorPreview.Text = this.appAuthor.Text;
+            if (!disableChange) {
+                this.authorPreview.Text = this.appAuthor.Text;
+                this.smdhFile.SetPublisher((int)this.appTitleNumber.Value, this.appAuthor.Text);
+            }
         }
         
         void AppDescriptionTextChanged(object sender, EventArgs e) {
-            this.descripPreview.Text = this.appDescription.Text;
+            if (!disableChange) {
+                this.descripPreview.Text = this.appDescription.Text;
+                this.smdhFile.SetLongDescription((int)this.appTitleNumber.Value, this.appDescription.Text);
+            }
         }
         
         void OpenIconDialogFileOk(object sender, System.ComponentModel.CancelEventArgs e) {
@@ -99,6 +108,13 @@ namespace ASMDHT {
         }
         void AboutBtnClick(object sender, EventArgs e) {
             new AboutDialog().ShowDialog();
+        }
+        void AppTitleNumberValueChanged(object sender, EventArgs e) {
+            if (this.smdhFile.Valid && !disableChange) {
+                this.appAuthor.Text = this.smdhFile.GetPublisher((int)this.appTitleNumber.Value);
+                this.appTitle.Text = this.smdhFile.GetShortDescription((int)this.appTitleNumber.Value);
+                this.appDescription.Text = this.smdhFile.GetLongDescription((int)this.appTitleNumber.Value);
+            }
         }
     }
 }

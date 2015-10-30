@@ -99,7 +99,7 @@ namespace ASMDHT
             this.openSMDH.Location = new System.Drawing.Point(422, 144);
             this.openSMDH.Name = "openSMDH";
             this.openSMDH.Size = new System.Drawing.Size(86, 44);
-            this.openSMDH.TabIndex = 0;
+            this.openSMDH.TabIndex = 5;
             this.openSMDH.Text = "Open SMDH";
             this.openSMDH.UseVisualStyleBackColor = true;
             this.openSMDH.Click += new System.EventHandler(this.OpenSMDHClick);
@@ -109,7 +109,7 @@ namespace ASMDHT
             this.saveSMDH.Location = new System.Drawing.Point(514, 144);
             this.saveSMDH.Name = "saveSMDH";
             this.saveSMDH.Size = new System.Drawing.Size(86, 44);
-            this.saveSMDH.TabIndex = 1;
+            this.saveSMDH.TabIndex = 6;
             this.saveSMDH.Text = "Save SMDH";
             this.saveSMDH.UseVisualStyleBackColor = true;
             this.saveSMDH.Click += new System.EventHandler(this.SaveSMDHClick);
@@ -198,7 +198,7 @@ namespace ASMDHT
             this.appTitle.Location = new System.Drawing.Point(12, 172);
             this.appTitle.Name = "appTitle";
             this.appTitle.Size = new System.Drawing.Size(286, 22);
-            this.appTitle.TabIndex = 5;
+            this.appTitle.TabIndex = 1;
             this.appTitle.TextChanged += new System.EventHandler(this.AppTitleTextChanged);
             // 
             // appTitleLabel
@@ -207,7 +207,7 @@ namespace ASMDHT
             this.appTitleLabel.Location = new System.Drawing.Point(12, 150);
             this.appTitleLabel.Name = "appTitleLabel";
             this.appTitleLabel.Size = new System.Drawing.Size(100, 19);
-            this.appTitleLabel.TabIndex = 6;
+            this.appTitleLabel.TabIndex = 99;
             this.appTitleLabel.Text = "App Title:";
             // 
             // appAuthorLabel
@@ -216,7 +216,7 @@ namespace ASMDHT
             this.appAuthorLabel.Location = new System.Drawing.Point(12, 197);
             this.appAuthorLabel.Name = "appAuthorLabel";
             this.appAuthorLabel.Size = new System.Drawing.Size(100, 19);
-            this.appAuthorLabel.TabIndex = 8;
+            this.appAuthorLabel.TabIndex = 99;
             this.appAuthorLabel.Text = "App Author:";
             // 
             // appAuthor
@@ -224,7 +224,7 @@ namespace ASMDHT
             this.appAuthor.Location = new System.Drawing.Point(12, 219);
             this.appAuthor.Name = "appAuthor";
             this.appAuthor.Size = new System.Drawing.Size(286, 22);
-            this.appAuthor.TabIndex = 7;
+            this.appAuthor.TabIndex = 3;
             this.appAuthor.TextChanged += new System.EventHandler(this.AppAuthorTextChanged);
             // 
             // appDescripLabel
@@ -233,7 +233,7 @@ namespace ASMDHT
             this.appDescripLabel.Location = new System.Drawing.Point(12, 244);
             this.appDescripLabel.Name = "appDescripLabel";
             this.appDescripLabel.Size = new System.Drawing.Size(135, 19);
-            this.appDescripLabel.TabIndex = 10;
+            this.appDescripLabel.TabIndex = 99;
             this.appDescripLabel.Text = "App Description:";
             // 
             // appDescription
@@ -242,7 +242,7 @@ namespace ASMDHT
             this.appDescription.Multiline = true;
             this.appDescription.Name = "appDescription";
             this.appDescription.Size = new System.Drawing.Size(486, 70);
-            this.appDescription.TabIndex = 9;
+            this.appDescription.TabIndex = 4;
             this.appDescription.TextChanged += new System.EventHandler(this.AppDescriptionTextChanged);
             // 
             // previewIcon
@@ -279,7 +279,7 @@ namespace ASMDHT
             // 
             this.appTitleNumber.Location = new System.Drawing.Point(304, 172);
             this.appTitleNumber.Maximum = new decimal(new int[] {
-            16,
+            12,
             0,
             0,
             0});
@@ -290,12 +290,13 @@ namespace ASMDHT
             0});
             this.appTitleNumber.Name = "appTitleNumber";
             this.appTitleNumber.Size = new System.Drawing.Size(112, 22);
-            this.appTitleNumber.TabIndex = 12;
+            this.appTitleNumber.TabIndex = 2;
             this.appTitleNumber.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.appTitleNumber.ValueChanged += new System.EventHandler(this.AppTitleNumberValueChanged);
             // 
             // titleNumberLabel
             // 
@@ -317,7 +318,7 @@ namespace ASMDHT
             this.titlePreview.Name = "titlePreview";
             this.titlePreview.ReadOnly = true;
             this.titlePreview.Size = new System.Drawing.Size(439, 23);
-            this.titlePreview.TabIndex = 14;
+            this.titlePreview.TabIndex = 99;
             // 
             // descripPreview
             // 
@@ -331,7 +332,7 @@ namespace ASMDHT
             this.descripPreview.Name = "descripPreview";
             this.descripPreview.ReadOnly = true;
             this.descripPreview.Size = new System.Drawing.Size(439, 59);
-            this.descripPreview.TabIndex = 15;
+            this.descripPreview.TabIndex = 99;
             // 
             // authorPreview
             // 
@@ -344,7 +345,7 @@ namespace ASMDHT
             this.authorPreview.Name = "authorPreview";
             this.authorPreview.ReadOnly = true;
             this.authorPreview.Size = new System.Drawing.Size(286, 23);
-            this.authorPreview.TabIndex = 16;
+            this.authorPreview.TabIndex = 99;
             this.authorPreview.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // exportImage
@@ -359,7 +360,7 @@ namespace ASMDHT
             this.aboutBtn.Location = new System.Drawing.Point(504, 309);
             this.aboutBtn.Name = "aboutBtn";
             this.aboutBtn.Size = new System.Drawing.Size(96, 27);
-            this.aboutBtn.TabIndex = 17;
+            this.aboutBtn.TabIndex = 7;
             this.aboutBtn.Text = "About";
             this.aboutBtn.UseVisualStyleBackColor = true;
             this.aboutBtn.Click += new System.EventHandler(this.AboutBtnClick);
