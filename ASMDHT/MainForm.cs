@@ -114,7 +114,7 @@ namespace ASMDHT {
         }
         
         void AppTitleNumberValueChanged(object sender, EventArgs e) {
-            if (this.smdhFile.Valid && !disableChange) {
+            if (this.smdhFile != null && this.smdhFile.Valid && !disableChange) {
                 this.appAuthor.Text = this.smdhFile.GetPublisher((int)this.appTitleNumber.Value);
                 this.appTitle.Text = this.smdhFile.GetShortDescription((int)this.appTitleNumber.Value);
                 this.appDescription.Text = this.smdhFile.GetLongDescription((int)this.appTitleNumber.Value);

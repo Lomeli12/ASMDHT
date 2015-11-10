@@ -13,7 +13,6 @@
     <StartAction>Program</StartAction>
     <TargetFrameworkProfile />
     <ApplicationIcon>..\resources\icon.ico</ApplicationIcon>
-    <NoWin32Manifest>False</NoWin32Manifest>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
@@ -22,9 +21,12 @@
     <WarningLevel>4</WarningLevel>
     <SignAssembly>False</SignAssembly>
     <DelaySign>False</DelaySign>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\Anthony\AppData\Roaming\ICSharpCode\SharpDevelop5\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <NoWin32Manifest>False</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <BaseAddress>4194304</BaseAddress>
     <RegisterForComInterop>False</RegisterForComInterop>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
@@ -34,7 +36,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DebugSymbols>True</DebugSymbols>
     <DebugType>Full</DebugType>
-    <Optimize>False</Optimize>
+    <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
@@ -46,6 +48,9 @@
     <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ASMDHT.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
@@ -67,7 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutDialog.cs" />
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>

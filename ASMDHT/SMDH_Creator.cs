@@ -60,6 +60,8 @@ namespace ASMDHT {
         }
 
         public void SetShortDescription(int appTitleID, string description) {
+            if(this.applicationTitles[appTitleID] == null)
+                this.applicationTitles[appTitleID] = new smdhTitle();
             for (int i = 0; i < this.applicationTitles[appTitleID].shortDescription.Length; i += 1) {
                 if (i < description.Length) {
                     this.applicationTitles[appTitleID].shortDescription[i] = description[i];
@@ -78,6 +80,8 @@ namespace ASMDHT {
         }
 
         public void SetLongDescription(int appTitleID, string description) {
+            if(this.applicationTitles[appTitleID] == null)
+                this.applicationTitles[appTitleID] = new smdhTitle();
             for (int i = 0; i < this.applicationTitles[appTitleID].longDescription.Length; i += 1) {
                 if (i < description.Length) {
                     this.applicationTitles[appTitleID].longDescription[i] = description[i];
@@ -96,9 +100,8 @@ namespace ASMDHT {
         }
 
         public void SetPublisher(int appTitleID, string publisher) {
-            if(this.applicationTitles[appTitleID] == null) {
+            if(this.applicationTitles[appTitleID] == null)
                 this.applicationTitles[appTitleID] = new smdhTitle();
-            }
             for (int i = 0; i < this.applicationTitles[appTitleID].publisher.Length; i += 1) {
                 if(i < publisher.Length) {
                     this.applicationTitles[appTitleID].publisher[i] = publisher[i];
