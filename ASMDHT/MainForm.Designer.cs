@@ -35,6 +35,7 @@ namespace ASMDHT
         private System.Windows.Forms.ToolStripMenuItem importLargeIcon;
         private System.Windows.Forms.ToolStripMenuItem exportLargeIcon;
         private System.Windows.Forms.Button aboutBtn;
+        private System.Windows.Forms.CheckBox regionsBox;
         
         /// <summary>
         /// Disposes resources used by the form.
@@ -85,6 +86,7 @@ namespace ASMDHT
             this.authorPreview = new System.Windows.Forms.TextBox();
             this.exportImage = new System.Windows.Forms.SaveFileDialog();
             this.aboutBtn = new System.Windows.Forms.Button();
+            this.regionsBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bannerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smallIcon)).BeginInit();
             this.smallRightClick.SuspendLayout();
@@ -279,7 +281,7 @@ namespace ASMDHT
             // 
             this.appTitleNumber.Location = new System.Drawing.Point(304, 172);
             this.appTitleNumber.Maximum = new decimal(new int[] {
-            12,
+            16,
             0,
             0,
             0});
@@ -303,7 +305,7 @@ namespace ASMDHT
             this.titleNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleNumberLabel.Location = new System.Drawing.Point(304, 150);
             this.titleNumberLabel.Name = "titleNumberLabel";
-            this.titleNumberLabel.Size = new System.Drawing.Size(100, 19);
+            this.titleNumberLabel.Size = new System.Drawing.Size(112, 19);
             this.titleNumberLabel.TabIndex = 13;
             this.titleNumberLabel.Text = "Title Number:";
             // 
@@ -365,11 +367,22 @@ namespace ASMDHT
             this.aboutBtn.UseVisualStyleBackColor = true;
             this.aboutBtn.Click += new System.EventHandler(this.AboutBtnClick);
             // 
+            // regionsBox
+            // 
+            this.regionsBox.Location = new System.Drawing.Point(304, 219);
+            this.regionsBox.Name = "regionsBox";
+            this.regionsBox.Size = new System.Drawing.Size(119, 22);
+            this.regionsBox.TabIndex = 100;
+            this.regionsBox.Text = "All Regions";
+            this.regionsBox.UseVisualStyleBackColor = true;
+            this.regionsBox.CheckedChanged += new System.EventHandler(this.RegionsBoxCheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 351);
+            this.Controls.Add(this.regionsBox);
             this.Controls.Add(this.aboutBtn);
             this.Controls.Add(this.authorPreview);
             this.Controls.Add(this.descripPreview);
